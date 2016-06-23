@@ -3,6 +3,9 @@
   :license {:name "Apache License, Version 2.0"
             :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
 
+  :parent-project {:coords [puppetlabs/clj-parent "0.1.0-SNAPSHOT"]
+                   :inherit [:managed-dependencies]}
+
   ;; Abort when version ranges or version conflicts are detected in
   ;; dependencies. Also supports :warn to simply emit warnings.
   ;; requires lein 2.2.0+.
@@ -20,7 +23,8 @@
                  ;; to do some classpath stuff.
                  [org.tcrawley/dynapath "0.2.3"]
                  [digest "1.4.3"]
-                 [clj-time "0.5.1"]
+                 ;[clj-time "0.5.1"]
+                 [clj-time]
                  [slingshot "0.10.3"]
                  ;; JSON
                  [cheshire "5.3.1"]]
@@ -37,7 +41,8 @@
 
   ;; this plugin is used by jenkins jobs to interrogate the project version
   :plugins [[lein-project-version "0.1.0"]
-            [lein-release "1.0.5"]]
+            [lein-release "1.0.5"]
+            [lein-parent "0.3.0-SNAPSHOT"]]
 
   :lein-release        {:scm          :git
                         :deploy-via   :lein-deploy}
